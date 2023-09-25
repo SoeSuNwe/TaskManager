@@ -6,3 +6,5 @@
 *.suo
 *.user
 *.sln.docstates
+taskmanger.db-shm 
+.vs/TaskManager/FileContentIndex/fe643db6-dbbf-46ad-8722-dab791b49b4f.vsidx

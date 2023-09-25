@@ -3,25 +3,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace TaskManager.Migrations
 {
     /// <inheritdoc />
-    public partial class adduser : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Title",
-                table: "Tasks",
-                type: "TEXT",
-                maxLength: 100,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -59,6 +50,22 @@ namespace TaskManager.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tasks",
+                columns: table => new
+                {
+                    TaskId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true),
+                    DueDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    IsCompleted = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tasks", x => x.TaskId);
                 });
 
             migrationBuilder.CreateTable(
@@ -167,75 +174,22 @@ namespace TaskManager.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.UpdateData(
+            migrationBuilder.InsertData(
                 table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 1,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6482));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 2,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6499));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 3,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6500));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 4,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6501));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 5,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6502));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 6,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6504));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 7,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6505));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 8,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6507));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 9,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6508));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 10,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 12, 40, 3, 942, DateTimeKind.Local).AddTicks(6511));
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[,]
+                {
+                    { 1, "This is Task 1", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6805), false, "Task 1" },
+                    { 2, "This is Task 2", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6818), true, "Task 2" },
+                    { 3, "This is Task 3", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6819), false, "Task 3" },
+                    { 4, "This is Task 4", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6820), true, "Task 4" },
+                    { 5, "This is Task 5", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6821), false, "Task 5" },
+                    { 6, "This is Task 6", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6823), true, "Task 6" },
+                    { 7, "This is Task 7", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6847), false, "Task 7" },
+                    { 8, "This is Task 8", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6848), true, "Task 8" },
+                    { 9, "This is Task 9", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6849), false, "Task 9" },
+                    { 10, "This is Task 10", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6851), true, "Task 10" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -294,89 +248,13 @@ namespace TaskManager.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Tasks");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Title",
-                table: "Tasks",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 100);
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 1,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7582));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 2,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7595));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 3,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7596));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 4,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7597));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 5,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7598));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 6,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7599));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 7,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7600));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 8,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7602));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 9,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7602));
-
-            migrationBuilder.UpdateData(
-                table: "Tasks",
-                keyColumn: "TaskId",
-                keyValue: 10,
-                column: "DueDate",
-                value: new DateTime(2023, 9, 25, 8, 56, 20, 587, DateTimeKind.Local).AddTicks(7604));
         }
     }
 }
