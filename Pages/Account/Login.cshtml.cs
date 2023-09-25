@@ -9,12 +9,12 @@ namespace TaskManager.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager)
-        {
-            _signInManager = signInManager;
-        }
+		public LoginModel(SignInManager<IdentityUser> signInManager)
+		{
+			_signInManager = signInManager;
+		}
 
-        [BindProperty]
+		[BindProperty]
         public InputModel Input { get; set; }
 
         public class InputModel

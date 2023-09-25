@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using TaskManager.Data;
 
 namespace TaskManager.Pages.Account
@@ -29,7 +30,7 @@ namespace TaskManager.Pages.Account
 
         public async Task<IActionResult> OnPostDeleteAsync()
         { 
-            var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name); 
+            var user =await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name); 
              
             if (user != null)
             {
