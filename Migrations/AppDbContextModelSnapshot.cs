@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TaskCRUDContoller.Data;
+using TaskManager.Data;
 
 #nullable disable
 
-namespace TaskCRUDContoller.Migrations
+namespace TaskManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -209,7 +209,7 @@ namespace TaskCRUDContoller.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TaskCRUDContoller.Models.Task", b =>
+            modelBuilder.Entity("TaskManager.Models.Task", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()

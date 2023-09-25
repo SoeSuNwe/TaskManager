@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TaskCRUDContoller;
-using TaskCRUDContoller.Data; 
+using TaskManager;
+using TaskManager.Data; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,74 +78,3 @@ app.MapControllerRoute(
     defaults: new { controller = "Task" });
 
 app.Run();
-
-//using Microsoft.AspNetCore.Builder;
-//using Microsoft.AspNetCore.Hosting;
-//using Microsoft.Extensions.Hosting;
-//using Microsoft.Extensions.DependencyInjection;
-//using Microsoft.AspNetCore.Mvc;
-//using System;
-
-//public class Program
-//{
-//    public static void Main(string[] args)
-//    {
-//        CreateHostBuilder(args).Build().Run();
-//    }
-
-//    public static IHostBuilder CreateHostBuilder(string[] args) =>
-//        Host.CreateDefaultBuilder(args)
-//            .ConfigureWebHostDefaults(webBuilder =>
-//            {
-//                webBuilder.ConfigureServices((context, services) =>
-//                {
-//                    services.AddControllersWithViews();
-//                    services.AddRazorPages().AddRazorRuntimeCompilation();
-//                    string connectionString = builder.Configuration.GetConnectionString("SQLiteConnection") ??
-//                            throw new InvalidOperationException("Connection string 'SQLiteConnection' not found.");
-//                    builder.Services.AddDbContext<AppDbContext>(options =>
-//                        options.UseSqlite(connectionString));
-//                })
-//                .Configure(app =>
-//                {
-//                    app.UseRouting();
-
-//                    // Define a custom endpoint for the TaskController
-//                    app.UseEndpoints(endpoints =>
-//                    {
-//                        endpoints.MapControllerRoute(
-//                            name: "Task",
-//                            pattern: "Task/{action}/{id?}",
-//                            defaults: new { controller = "Task", action = "Index" });
-
-//                        // Add other endpoints and middleware as needed.
-
-//                        endpoints.MapControllers();
-//                        endpoints.MapRazorPages();
-//                    });
-//                });
-//            });
-//}
-
-
-
-
-
-
-
-//using TaskCRUDContoller;
-
-//public class Program
-//{
-//    public static void Main(string[] args)
-//    {
-//        CreateHostBuilder(args).Build().Run();
-//    }
-
-//    public static IHostBuilder CreateHostBuilder(string[] args) =>
-//        Host.CreateDefaultBuilder(args)
-//            .ConfigureWebHostDefaults(webBuilder =>
-//            {
-//                webBuilder.UseStartup<Startup>(); // This line sets the Startup class.
-//            });
-//}

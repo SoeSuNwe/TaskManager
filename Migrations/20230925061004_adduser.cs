@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TaskCRUDContoller.Migrations
+namespace TaskManager.Migrations
 {
     /// <inheritdoc />
     public partial class adduser : Migration

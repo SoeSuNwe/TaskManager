@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TaskCRUDContoller.Models
+namespace TaskManager.Models
 {
     public class Task
     {

@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TaskCRUDContoller.Data;
-using TaskCRUDContoller.Models;
+using TaskManager.Data;
+using TaskManager.Models;
 
-namespace TaskCRUDContoller.Pages.Task
+namespace TaskManager.Pages.Task
 {
     public class DeleteModel : PageModel
     {
-        private readonly TaskCRUDContoller.Data.AppDbContext _context;
+        private readonly TaskManager.Data.AppDbContext _context;
 
-        public DeleteModel(TaskCRUDContoller.Data.AppDbContext context)
+        public DeleteModel(TaskManager.Data.AppDbContext context)
         {
             _context = context;
         }

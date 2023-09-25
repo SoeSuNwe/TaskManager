@@ -1,4 +1,4 @@
-﻿namespace TaskCRUDContoller
+﻿namespace TaskManager
 {
     public class Startup
     {

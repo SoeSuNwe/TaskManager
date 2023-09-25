@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TaskCRUDContoller.Data;
+using TaskManager.Data;
 
-namespace TaskCRUDContoller.Pages.Account
+namespace TaskManager.Pages.Account
 {
     public class LogoutModel : PageModel
     {

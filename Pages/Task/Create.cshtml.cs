@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages; 
-using TaskCRUDContoller.Data; 
+using TaskManager.Data; 
 
-namespace TaskCRUDContoller.Pages.Task
+namespace TaskManager.Pages.Task
 {
     public class CreateModel : PageModel
     {

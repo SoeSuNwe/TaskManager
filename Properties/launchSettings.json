@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "TaskCRUDContoller": {
+    "TaskManager": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

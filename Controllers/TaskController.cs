@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TaskCRUDContoller.Data; 
+using TaskManager.Data; 
 
-namespace TaskCRUDContoller.Controllers
+namespace TaskManager.Controllers
 {
     [Authorize]
     public class TaskController : Controller

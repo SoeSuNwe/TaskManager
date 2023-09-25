@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TaskCRUDContoller.Controllers;
+using TaskManager.Controllers;
 
-namespace TaskCRUDContoller.Pages.Task
+namespace TaskManager.Pages.Task
 {
  
     public class IndexModel : PageModel

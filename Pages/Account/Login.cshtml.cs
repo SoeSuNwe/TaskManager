@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TaskCRUDContoller.Pages.Account
+namespace TaskManager.Pages.Account
 {
     public class LoginModel : PageModel
     {

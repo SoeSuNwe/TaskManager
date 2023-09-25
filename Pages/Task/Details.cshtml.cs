@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TaskCRUDContoller.Data; 
+using TaskManager.Data; 
 
-namespace TaskCRUDContoller.Pages.Task
+namespace TaskManager.Pages.Task
 {
     public class DetailsModel : PageModel
     {

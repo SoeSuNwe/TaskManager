@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TaskCRUDContoller.Pages
+namespace TaskManager.Pages
 {
     public class IndexModel : PageModel
     {

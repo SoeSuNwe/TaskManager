@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using TaskCRUDContoller.Models;
+using Microsoft.EntityFrameworkCore; 
 
-namespace TaskCRUDContoller.Data
+namespace TaskManager.Data
 {
     public class AppDbContext : IdentityDbContext<IdentityUser>
     { 
