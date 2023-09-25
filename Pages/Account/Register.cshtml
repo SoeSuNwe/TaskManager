@@ -1,0 +1,46 @@
+﻿@page
+@model RegisterModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+
+    <!-- Display validation summary if there are model errors -->
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <form method="post">
+        <!-- Email Input -->
+        <div class="form-group">
+            <label asp-for="Input.Email">Email</label>
+            <input asp-for="Input.Email" class="form-control" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label asp-for="Input.Password">Password</label>
+            <input asp-for="Input.Password" type="password" class="form-control" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+
+        <!-- Confirm Password Input -->
+        <div class="form-group">
+            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+            <input asp-for="Input.ConfirmPassword" type="password" class="form-control" />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Register</button>
+        <br />
+    </form>
+
+    <p>
+        Already have an account? <a asp-page="./Login">Log in</a>
+    </p>
+</body>
+</html>
