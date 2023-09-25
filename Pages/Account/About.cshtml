@@ -1,0 +1,33 @@
+﻿@page
+@model TaskManager.Pages.Account.LogoutModel
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Detail</title>
+</head>
+<h1> About </h1>
+<body> 
+	<p> 
+		@if(Model.User.Identity.Name != null)
+		{
+			<p> 
+				<span> UserName:</span> 
+				<span> model.User.Identity.Name </span>
+			</p>
+		}
+		else
+		{
+			<span>You are Anonymous user.</span>
+		}
+	</p>
+	
+
+	<!-- Display validation summary if there are model errors -->
+	<div asp-validation-summary="All" class="text-danger"></div>
+
+	<form method="post">
+		<button type="submit" class="btn btn-primary" asp-page-handler="post">Log out</button>
+		<button type="submit" name="deleteUserButton" asp-page-handler="delete" class="btn btn-danger">Delete My Account</button>
+	</form>
+</body>
+</html>

@@ -52,8 +52,41 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Seed the database with sample tasks on application startup
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.EnsureCreated(); // Create the database if it doesn't exist
+
+    // Check if there are no tasks in the database, then seed it
+    if (!dbContext.Tasks.Any())
+    {
+        var sampleTasks = new List<TaskManager.Models.Task>
+        {
+            new TaskManager.Models.Task
+            {
+                Title = "Sample Task 1",
+                Description = "This is a sample task 1",
+                DueDate = DateTime.Now.AddDays(7),
+                IsCompleted = false
+            },
+            new TaskManager.Models.Task
+            {
+                Title = "Sample Task 2",
+                Description = "This is a sample task 2",
+                DueDate = DateTime.Now.AddDays(14),
+                IsCompleted = false
+            }
+        };
+
+        dbContext.Tasks.AddRange(sampleTasks);
+        dbContext.SaveChanges();
+    }
+}
+
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

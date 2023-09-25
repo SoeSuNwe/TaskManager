@@ -17,22 +17,22 @@ namespace TaskManager.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            List<Models.Task> tasks = new();
-            for (int i = 1; i <= 10; i++)
-            {
-                tasks.Add(
-                    new Models.Task
-                    {
-                        TaskId = i,
-                        Title = "Task " + i,
-                        Description = "This is Task " + i,
-                        DueDate = DateTime.Now,
-                        IsCompleted = (i % 2 == 0)
+            //List<Models.Task> tasks = new();
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    tasks.Add(
+            //        new Models.Task
+            //        {
+            //            TaskId = i,
+            //            Title = "Task " + i,
+            //            Description = "This is Task " + i,
+            //            DueDate = DateTime.Now,
+            //            IsCompleted = (i % 2 == 0)
 
-                    }
-                );
-            }
-            modelBuilder.Entity<Models.Task>().HasData(tasks);
+            //        }
+            //    );
+            //}
+            //modelBuilder.Entity<Models.Task>().HasData(tasks);
         }
 
     }
