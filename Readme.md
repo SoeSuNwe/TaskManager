@@ -1,31 +1,21 @@
-# ASP.NET Razor Pages Website
+# TaskManager - ASP.NET Razor Pages Project 
 
-Welcome to the ASP.NET Razor Pages website project! This README provides an overview of the project, its structure, and instructions on how to get started.
-
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
+Welcome to TaskManager ASP.NET Razor Pages website project! This README provides an overview of the project, its structure, and instructions on how to get started.
 
 ## Project Overview
 
-This ASP.NET Razor Pages website is designed to [briefly describe the purpose or functionality of your website]. It uses the ASP.NET Core framework and Razor Pages for building web applications with minimal overhead.
+TaskManager is a web-based task management application built using ASP.NET Razor Pages. It allows you to create, update, and organize tasks efficiently. With a user-friendly interface, you can easily keep track of your to-do list, deadlines, and priorities.
 
 ## Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Before you begin, make sure you have the following prerequisites installed:
 
-- [.NET Core SDK](https://dotnet.microsoft.com/download) (Version X.X.X)
+- [.NET Core SDK](https://dotnet.microsoft.com/download) (Version 6.0)
 - [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) (optional)
 
 ## Getting Started
 
-Follow these steps to get the project up and running on your local machine:
+Follow these steps to set up and run TaskManager on your local machine:
 
 1. Clone the repository:
 
