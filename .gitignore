@@ -14,3 +14,4 @@ taskmanger.db-wal
 .vs/ProjectEvaluation/taskmanager.metadata.v7.bin
 .vs/ProjectEvaluation/taskmanager.projects.v7.bin
 .vs/TaskManager/DesignTimeBuild/.dtbcache.v2
+taskmanager.db
