@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using TaskManager.Data;
 using TaskManager.Models;
+using TaskManager.Repositories;
 
 namespace TaskManager.Pages.Task
 {
-	public class EditModel : PageModel
+    public class EditModel : PageModel
 	{
 		private readonly ITaskRepository _taskRepository;
 

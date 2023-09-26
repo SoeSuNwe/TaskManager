@@ -6,74 +6,74 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TaskManager.Data;
 using TaskManager.Models;
+using TaskManager.Repositories;
 
 namespace TaskManager.Pages.Task
 {
-	//public class DeleteModel : PageModel
-	//{
-	//    private readonly TaskManager.Data.AppDbContext _context;
+    //public class DeleteModel : PageModel
+    //{
+    //    private readonly TaskManager.Data.AppDbContext _context;
 
-	//    public DeleteModel(TaskManager.Data.AppDbContext context)
-	//    {
-	//        _context = context;
-	//    }
+    //    public DeleteModel(TaskManager.Data.AppDbContext context)
+    //    {
+    //        _context = context;
+    //    }
 
-	//    [BindProperty]
-	//  public Models.Task Task { get; set; } = default!;
-	//    [Authorize]
-	//    public async Task<IActionResult> OnGetAsync(int? id)
-	//    {
-	//        var userName = User.Identity.Name;
-	//        var hasAccess = _context.Users.Any(u => u.UserName == userName);
-	//        if (hasAccess)
-	//        {
-	//            if (id == null || _context.Tasks == null)
-	//        {
-	//            return NotFound();
-	//        }
+    //    [BindProperty]
+    //  public Models.Task Task { get; set; } = default!;
+    //    [Authorize]
+    //    public async Task<IActionResult> OnGetAsync(int? id)
+    //    {
+    //        var userName = User.Identity.Name;
+    //        var hasAccess = _context.Users.Any(u => u.UserName == userName);
+    //        if (hasAccess)
+    //        {
+    //            if (id == null || _context.Tasks == null)
+    //        {
+    //            return NotFound();
+    //        }
 
-	//            var task = await _context.Tasks.FirstOrDefaultAsync(m => m.TaskId == id);
+    //            var task = await _context.Tasks.FirstOrDefaultAsync(m => m.TaskId == id);
 
-	//            if (task == null)
-	//            {
-	//                return NotFound();
-	//            }
-	//            else
-	//            {
-	//                Task = task;
-	//            }
-	//            return Page();
-	//        }
-	//        return Forbid();
-	//    }
-	//    [Authorize]
-	//    public async Task<IActionResult> OnPostAsync(int? id)
-	//    {
-	//        var userName = User.Identity.Name;
-	//        var hasAccess = _context.Users.Any(u => u.UserName == userName);
-	//        if (hasAccess)
-	//        {
-	//            if (id == null || _context.Tasks == null)
-	//            {
-	//                return NotFound();
-	//            }
-	//            var task = await _context.Tasks.FindAsync(id);
+    //            if (task == null)
+    //            {
+    //                return NotFound();
+    //            }
+    //            else
+    //            {
+    //                Task = task;
+    //            }
+    //            return Page();
+    //        }
+    //        return Forbid();
+    //    }
+    //    [Authorize]
+    //    public async Task<IActionResult> OnPostAsync(int? id)
+    //    {
+    //        var userName = User.Identity.Name;
+    //        var hasAccess = _context.Users.Any(u => u.UserName == userName);
+    //        if (hasAccess)
+    //        {
+    //            if (id == null || _context.Tasks == null)
+    //            {
+    //                return NotFound();
+    //            }
+    //            var task = await _context.Tasks.FindAsync(id);
 
-	//            if (task != null)
-	//            {
-	//                Task = task;
-	//                _context.Tasks.Remove(Task);
-	//                await _context.SaveChangesAsync();
-	//            }
+    //            if (task != null)
+    //            {
+    //                Task = task;
+    //                _context.Tasks.Remove(Task);
+    //                await _context.SaveChangesAsync();
+    //            }
 
-	//            return RedirectToPage("./Index");
-	//        }
-	//        return Forbid();
-	//    }
-	//}
-	public class DeleteModel : PageModel
+    //            return RedirectToPage("./Index");
+    //        }
+    //        return Forbid();
+    //    }
+    //}
+    public class DeleteModel : PageModel
 	{
 		private readonly ITaskRepository _taskRepository;
 

@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using TaskManager.Data;
+using TaskManager.Repositories;
 
 namespace TaskManager.Pages.Task
 {
-	public class DetailsModel : PageModel
+    public class DetailsModel : PageModel
 	{
 		private readonly ITaskRepository _taskRepository;
 

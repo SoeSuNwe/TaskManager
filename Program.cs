@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskManager;
-using TaskManager.Data; 
+using TaskManager.Data;
+using TaskManager.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

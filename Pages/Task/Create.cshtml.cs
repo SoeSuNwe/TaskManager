@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TaskManager.Data;
+using TaskManager.Repositories;
 
 namespace TaskManager.Pages.Task
 {
-	public class CreateModel : PageModel
+    public class CreateModel : PageModel
 	{
 		private readonly ITaskRepository _taskRepository;
 
