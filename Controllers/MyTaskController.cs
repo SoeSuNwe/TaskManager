@@ -14,13 +14,13 @@ namespace TaskManager.Controllers
             _taskRepository = taskRepository;
         }
         public async Task<IActionResult> Index(string sortOrder)
-        {
-            // Toggle sorting order
-            sortOrder = sortOrder == "ascending" ? "descending" : "ascending";
-            ViewData["CurrentSort"] = sortOrder;
-            Console.WriteLine(sortOrder);
-
+        { 
             List<Models.Task> allTask = await _taskRepository.GetAllTasks();
+            if (allTask == null)
+            {
+                // Handle the case where allTask is null (e.g., repository failure)
+                return NotFound();
+            }
             List<Models.Task> sortedTaskList;
 
             switch (sortOrder)
@@ -32,6 +32,9 @@ namespace TaskManager.Controllers
                     sortedTaskList = allTask.OrderBy(t => t.DueDate).ToList();
                     break;
             }
+            // Toggle sorting order
+            sortOrder = sortOrder == "ascending" ? "descending" : "ascending";
+            ViewData["CurrentSort"] = sortOrder; 
             return View(sortedTaskList);
         }
 
