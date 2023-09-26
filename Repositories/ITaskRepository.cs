@@ -10,7 +10,7 @@ namespace TaskManager.Repositories
 		Task EditTaskAsync(Models.Task task);
 		Task DeleteTaskAsync(Models.Task task);
 		Task<List<Models.Task>> GetAllTasks();
-		bool HasAccess(string userName);
+		bool HasAccess(string userName); // to check user in database
 		bool TaskExists(int id);
 	}
 	public class TaskRepository : ITaskRepository
