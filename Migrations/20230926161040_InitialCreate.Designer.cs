@@ -11,14 +11,13 @@ using TaskManager.Data;
 namespace TaskManager.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230925093034_InitialCreate")]
+    [Migration("20230926161040_InitialCreate")]
     partial class InitialCreate
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.11");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.22");
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -242,7 +241,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 1,
                             Description = "This is Task 1",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6805),
+                            DueDate = new DateTime(2023, 9, 27, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1164),
                             IsCompleted = false,
                             Title = "Task 1"
                         },
@@ -250,7 +249,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 2,
                             Description = "This is Task 2",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6818),
+                            DueDate = new DateTime(2023, 9, 28, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1180),
                             IsCompleted = true,
                             Title = "Task 2"
                         },
@@ -258,7 +257,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 3,
                             Description = "This is Task 3",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6819),
+                            DueDate = new DateTime(2023, 9, 29, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1181),
                             IsCompleted = false,
                             Title = "Task 3"
                         },
@@ -266,7 +265,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 4,
                             Description = "This is Task 4",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6820),
+                            DueDate = new DateTime(2023, 9, 30, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1181),
                             IsCompleted = true,
                             Title = "Task 4"
                         },
@@ -274,7 +273,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 5,
                             Description = "This is Task 5",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6821),
+                            DueDate = new DateTime(2023, 10, 1, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1182),
                             IsCompleted = false,
                             Title = "Task 5"
                         },
@@ -282,7 +281,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 6,
                             Description = "This is Task 6",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6823),
+                            DueDate = new DateTime(2023, 10, 2, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1184),
                             IsCompleted = true,
                             Title = "Task 6"
                         },
@@ -290,7 +289,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 7,
                             Description = "This is Task 7",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6847),
+                            DueDate = new DateTime(2023, 10, 3, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1206),
                             IsCompleted = false,
                             Title = "Task 7"
                         },
@@ -298,7 +297,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 8,
                             Description = "This is Task 8",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6848),
+                            DueDate = new DateTime(2023, 10, 4, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1207),
                             IsCompleted = true,
                             Title = "Task 8"
                         },
@@ -306,7 +305,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 9,
                             Description = "This is Task 9",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6849),
+                            DueDate = new DateTime(2023, 10, 5, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1208),
                             IsCompleted = false,
                             Title = "Task 9"
                         },
@@ -314,7 +313,7 @@ namespace TaskManager.Migrations
                         {
                             TaskId = 10,
                             Description = "This is Task 10",
-                            DueDate = new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6851),
+                            DueDate = new DateTime(2023, 10, 6, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1210),
                             IsCompleted = true,
                             Title = "Task 10"
                         });

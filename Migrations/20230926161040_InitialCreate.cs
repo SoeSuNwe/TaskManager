@@ -1,14 +1,12 @@
-﻿
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-
+#nullable disable
 
 namespace TaskManager.Migrations
 {
-    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -175,19 +173,52 @@ namespace TaskManager.Migrations
             migrationBuilder.InsertData(
                 table: "Tasks",
                 columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
-                values: new object[,]
-                {
-                    { 1, "This is Task 1", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6805), false, "Task 1" },
-                    { 2, "This is Task 2", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6818), true, "Task 2" },
-                    { 3, "This is Task 3", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6819), false, "Task 3" },
-                    { 4, "This is Task 4", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6820), true, "Task 4" },
-                    { 5, "This is Task 5", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6821), false, "Task 5" },
-                    { 6, "This is Task 6", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6823), true, "Task 6" },
-                    { 7, "This is Task 7", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6847), false, "Task 7" },
-                    { 8, "This is Task 8", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6848), true, "Task 8" },
-                    { 9, "This is Task 9", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6849), false, "Task 9" },
-                    { 10, "This is Task 10", new DateTime(2023, 9, 25, 16, 0, 34, 58, DateTimeKind.Local).AddTicks(6851), true, "Task 10" }
-                });
+                values: new object[] { 1, "This is Task 1", new DateTime(2023, 9, 27, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1164), false, "Task 1" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 2, "This is Task 2", new DateTime(2023, 9, 28, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1180), true, "Task 2" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 3, "This is Task 3", new DateTime(2023, 9, 29, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1181), false, "Task 3" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 4, "This is Task 4", new DateTime(2023, 9, 30, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1181), true, "Task 4" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 5, "This is Task 5", new DateTime(2023, 10, 1, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1182), false, "Task 5" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 6, "This is Task 6", new DateTime(2023, 10, 2, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1184), true, "Task 6" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 7, "This is Task 7", new DateTime(2023, 10, 3, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1206), false, "Task 7" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 8, "This is Task 8", new DateTime(2023, 10, 4, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1207), true, "Task 8" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 9, "This is Task 9", new DateTime(2023, 10, 5, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1208), false, "Task 9" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "Description", "DueDate", "IsCompleted", "Title" },
+                values: new object[] { 10, "This is Task 10", new DateTime(2023, 10, 6, 22, 40, 40, 167, DateTimeKind.Local).AddTicks(1210), true, "Task 10" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -227,7 +258,6 @@ namespace TaskManager.Migrations
                 unique: true);
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
