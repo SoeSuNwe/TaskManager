@@ -24,12 +24,15 @@ namespace TaskManager.Pages.Task
 		{
 			if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
 			{
-				if (!ModelState.IsValid || Task == null)
-				{
-					return Page();
+				if (_taskRepository.HasAccess(User.Identity.Name)) {
+					if (!ModelState.IsValid || Task == null)
+					{
+						return Page();
+					}
+					await _taskRepository.CreateTaskAsync(Task);
+					return RedirectToPage("./Index");
 				}
-				await _taskRepository.CreateTaskAsync(Task);
-				return RedirectToPage("./Index");
+				return Forbid();
 			}
 			return Forbid();
 

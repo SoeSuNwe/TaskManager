@@ -111,13 +111,17 @@ namespace TaskManager.Pages.Task
 			}
 			if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
 			{
-				Task = await _taskRepository.GetTaskByIdAsync(id.Value);
-
-				if (Task != null)
+				if (_taskRepository.HasAccess(User.Identity.Name))
 				{
-					await _taskRepository.DeleteTaskAsync(Task);
-				} 
-				return RedirectToPage("./Index");
+					Task = await _taskRepository.GetTaskByIdAsync(id.Value);
+
+					if (Task != null)
+					{
+						await _taskRepository.DeleteTaskAsync(Task);
+					}
+					return RedirectToPage("./Index");
+				}
+				return Forbid();
 			} 
 			return Forbid();
 		}

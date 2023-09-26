@@ -48,26 +48,30 @@ namespace TaskManager.Pages.Task
 		{
 			if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
 			{
-				if (!ModelState.IsValid || Task == null)
+				if (_taskRepository.HasAccess(User.Identity.Name))
 				{
-					return Page();
-				}
-				try
-				{
-					await _taskRepository.EditTaskAsync(Task);
-				}
-				catch (DbUpdateConcurrencyException)
-				{
-					if (!_taskRepository.TaskExists(Task.TaskId))
+					if (!ModelState.IsValid || Task == null)
 					{
-						return NotFound();
+						return Page();
 					}
-					else
+					try
 					{
-						throw;
+						await _taskRepository.EditTaskAsync(Task);
 					}
+					catch (DbUpdateConcurrencyException)
+					{
+						if (!_taskRepository.TaskExists(Task.TaskId))
+						{
+							return NotFound();
+						}
+						else
+						{
+							throw;
+						}
+					}
+					return RedirectToPage("./Index");
 				}
-				return RedirectToPage("./Index");
+				return Forbid();
 			}
 			return Forbid();
 		}
