@@ -32,3 +32,14 @@ Follow these steps to get the project up and running on your local machine:
    ```bash
    git clone https://github.com/SoeSuNwe/TaskManager.git
    cd TaskManager
+
+2. Build Project:
+
+   ```bash
+   dotnet restore
+   dotnet build
+   dotnet run
+
+3. Access the website:
+    ```bash
+    Open your web browser and navigate to https://localhost:7048 to explore the website.
