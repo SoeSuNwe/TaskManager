@@ -6,39 +6,40 @@ using TaskManager.Data;
 
 namespace TaskManager.Pages.Account
 {
-    public class LogoutModel : PageModel
-    {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly AppDbContext _context;
-        
-        public LogoutModel(SignInManager<IdentityUser> signInManager, AppDbContext context)
-        {
-            _signInManager = signInManager;
-            _context = context;
-        }
+	public class AboutModel : PageModel
+	{
+		private readonly SignInManager<IdentityUser> _signInManager;
+		private readonly AppDbContext _context;
+		public String? UserName { get; set; } = default!;
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            // Sign the user out
-            await _signInManager.SignOutAsync(); 
+		public AboutModel(SignInManager<IdentityUser> signInManager, AppDbContext context)
+		{
+			_signInManager = signInManager;
+			_context = context;			
+		}
 
-            // Redirect to a page after successful logout
-            return RedirectToPage("/Task/Index");
-        }
+		public async Task<IActionResult> OnPostAsync()
+		{ 
+			// Sign the user out
+			await _signInManager.SignOutAsync();
+
+			// Redirect to a page after successful logout
+			return RedirectToPage("/Task/Index");
+		}
 
 
 
-        public async Task<IActionResult> OnPostDeleteAsync()
-        { 
-            var user =await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name); 
-             
-            if (user != null)
-            {
-                _context.Remove(user);
-                _context.SaveChanges();
-            }
-
-            return RedirectToPage("/Task/Index");
-        }
-    }
+		public async Task<IActionResult> OnPostDeleteAsync()
+		{ 
+			var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name); 
+			if (user != null)
+			{
+				_context.Users.Remove(user);
+				await _context.SaveChangesAsync(); 
+				return RedirectToPage("/Task/Index");
+			}
+			return Page();
+			
+		}
+	}
 }

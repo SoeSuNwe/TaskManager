@@ -14,11 +14,11 @@ namespace TaskManager.Pages.Task
 {
 	public class EditModel : PageModel
 	{
-		private readonly AppDbContext _context;
+		private readonly ITaskRepository _taskRepository;
 
-		public EditModel(AppDbContext context)
+		public EditModel(ITaskRepository taskRepository)
 		{
-			_context = context;
+			_taskRepository = taskRepository;
 		}
 
 		[BindProperty]
@@ -26,25 +26,20 @@ namespace TaskManager.Pages.Task
 		[Authorize]
 		public async Task<IActionResult> OnGetAsync(int? id)
 		{
-			var userName = User.Identity.Name;
-			var hasAccess = _context.Users.Any(u => u.UserName == userName);
-			if (hasAccess)
+			if (id == null)
 			{
-				if (id == null || _context.Tasks == null)
-				{
-					return NotFound();
-				}
-
-				var task = await _context.Tasks.FirstOrDefaultAsync(m => m.TaskId == id);
-				if (task == null)
-				{
-					return NotFound();
-				}
-				Task = task;
-				return Page();
+				return NotFound();
 			}
-			return Forbid();
+			var task = await _taskRepository.GetTaskByIdAsync(id.Value);
+			if (task == null)
+			{
+				return NotFound();
+			}
+			Task = task;
+			return Page();
+
 		}
+
 
 		// To protect from overposting attacks, enable the specific properties you want to bind to.
 		// For more details, see https://aka.ms/RazorPagesCRUD.
@@ -53,18 +48,17 @@ namespace TaskManager.Pages.Task
 		{
 			if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
 			{
-				if (!ModelState.IsValid || _context.Tasks == null || Task == null)
+				if (!ModelState.IsValid || Task == null)
 				{
 					return Page();
 				}
-				_context.Attach(Task).State = EntityState.Modified;
 				try
 				{
-					await _context.SaveChangesAsync();
+					await _taskRepository.EditTaskAsync(Task);
 				}
 				catch (DbUpdateConcurrencyException)
 				{
-					if (!TaskExists(Task.TaskId))
+					if (!_taskRepository.TaskExists(Task.TaskId))
 					{
 						return NotFound();
 					}
@@ -73,15 +67,10 @@ namespace TaskManager.Pages.Task
 						throw;
 					}
 				}
-				await _context.SaveChangesAsync();
 				return RedirectToPage("./Index");
 			}
 			return Forbid();
 		}
-
-		private bool TaskExists(int id)
-		{
-			return (_context.Tasks?.Any(e => e.TaskId == id)).GetValueOrDefault();
-		}
+		
 	}
 }

@@ -1,18 +1,18 @@
 ﻿@page
-@model TaskManager.Pages.Account.LogoutModel
+@model TaskManager.Pages.Account.AboutModel
 <!DOCTYPE html>
 <html>
 <head>
 	<title>User Detail</title>
-</head>
- About 
+</head> 
 <body> 
+	<h1> About  </h1>
 	
-		@if(Model.User.Identity.Name != null)
+		@if(Model.UserName != null)
 		{
 			<p> 
 				<span> UserName:</span> 
-				<span> model.User.Identity.Name </span>
+				<span> @Model.UserName </span>
 			</p>
 		}
 		else

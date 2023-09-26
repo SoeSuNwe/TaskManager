@@ -7,15 +7,15 @@ namespace TaskManager.Pages.Task
 {
 	public class CreateModel : PageModel
 	{
-		private readonly AppDbContext _context;
+		private readonly ITaskRepository _taskRepository;
 
-		public CreateModel(AppDbContext context)
+		public CreateModel(ITaskRepository taskRepository)
 		{
-			_context = context;
+			_taskRepository = taskRepository;
 		}
 
 		[BindProperty]
-		public Models.Task Task { get; set; }
+		public Models.Task Task { get; set; } = default!;
 
 
 		// To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -24,13 +24,11 @@ namespace TaskManager.Pages.Task
 		{
 			if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
 			{
-				if (!ModelState.IsValid || _context.Tasks == null || Task == null)
+				if (!ModelState.IsValid || Task == null)
 				{
 					return Page();
 				}
-
-				_context.Tasks.Add(Task);
-				await _context.SaveChangesAsync();
+				await _taskRepository.CreateTaskAsync(Task);
 				return RedirectToPage("./Index");
 			}
 			return Forbid();
