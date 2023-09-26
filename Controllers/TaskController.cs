@@ -1,20 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TaskManager.Data;
+using TaskManager.Models;
 using TaskManager.Repositories;
 
 namespace TaskManager.Controllers
 {
-    public class MyTaskController : Controller
+    public class TaskController : Controller
     {
         private readonly ITaskRepository _taskRepository;
 
-        public MyTaskController(ITaskRepository taskRepository)
+        public TaskController(ITaskRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
         public async Task<IActionResult> Index(string sortOrder)
-        { 
+        {
             List<Models.Task> allTask = await _taskRepository.GetAllTasks();
             if (allTask == null)
             {
@@ -34,7 +41,7 @@ namespace TaskManager.Controllers
             }
             // Toggle sorting order
             sortOrder = sortOrder == "ascending" ? "descending" : "ascending";
-            ViewData["CurrentSort"] = sortOrder; 
+            ViewData["CurrentSort"] = sortOrder;
             return View(sortedTaskList);
         }
 

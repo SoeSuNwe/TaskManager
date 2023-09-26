@@ -12,7 +12,7 @@ public class TaskControllerUnitTest
     {
         // Arrange
         var taskRepositoryMock = new Mock<ITaskRepository>();
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         var tasks = new List<ModelTask>
             {
@@ -41,7 +41,7 @@ public class TaskControllerUnitTest
     {
         // Arrange
         var taskRepositoryMock = new Mock<ITaskRepository>();
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         var tasks = new List<Models.Task>
             {
@@ -71,7 +71,7 @@ public class TaskControllerUnitTest
     {
         // Arrange
         var taskRepositoryMock = new Mock<ITaskRepository>();
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         // Act
         var result = await controller.Index("invalidSortOrder");
@@ -86,7 +86,7 @@ public class TaskControllerUnitTest
     {
         // Arrange
         var taskRepositoryMock = new Mock<ITaskRepository>();
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         // Act
         var result = await controller.Details(null);
@@ -103,7 +103,7 @@ public class TaskControllerUnitTest
         var taskRepositoryMock = new Mock<ITaskRepository>();
         taskRepositoryMock.Setup(repo => repo.GetTaskByIdAsync(It.IsAny<int>()))
                           .ReturnsAsync((ModelTask)null);
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         // Act
         var result = await controller.Details(1); // Assuming the ID is 1
@@ -120,7 +120,7 @@ public class TaskControllerUnitTest
         var taskRepositoryMock = new Mock<ITaskRepository>();
         taskRepositoryMock.Setup(repo => repo.GetTaskByIdAsync(It.IsAny<int>()))
                           .ReturnsAsync(new ModelTask { TaskId = 1, Title = "Test Task" });
-        var controller = new MyTaskController(taskRepositoryMock.Object);
+        var controller = new TaskController(taskRepositoryMock.Object);
 
         // Act
         var result = await controller.Details(1); // Assuming the ID is 1

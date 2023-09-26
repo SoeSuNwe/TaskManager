@@ -6,20 +6,7 @@
 	<title>User Detail</title>
 </head> 
 <body> 
-	<h1> About  </h1>
-	
-		@if(Model.UserName != null)
-		{
-			<p> 
-				<span> UserName:</span> 
-				<span> @Model.UserName </span>
-			</p>
-		}
-		else
-		{
-			<span>You are Anonymous user.</span>
-		}
-	
+	<h1> About  </h1> 
 
 	<!-- Display validation summary if there are model errors -->
 	<div asp-validation-summary="All" class="text-danger"></div>
