@@ -33,3 +33,24 @@ Follow these steps to set up and run TaskManager on your local machine:
 3. Access the website:
     ```bash
     Open your web browser and navigate to https://localhost:7048 to explore the website.
+    
+ 4. View Task List:
+    ```bash
+    https://localhost:7048/Task
+    
+ 5. Create Task If your are already login:
+    ```bash
+     https://localhost:7048/Task/Create
+
+ 6. Detail Task:
+    ```bash
+    https://localhost:7048/Task/Details/1
+    
+ 7. Edit Task If your are already login:
+    ```bash
+     https://localhost:7048/Task/Edit/1
+    
+ 8. Delete Task If your are already login:
+    ```bash
+   https://localhost:7048/Task/Delete/1
+    
