@@ -53,4 +53,8 @@ Follow these steps to set up and run TaskManager on your local machine:
  8. Delete Task If your are already login:
     ```bash
     https://localhost:7048/Task/Delete/1
+
+ 9. If you wnat to run Unit Test:
+    ```bash
+    dotnet test
     
